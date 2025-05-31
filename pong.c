@@ -156,7 +156,7 @@ void cross_and_toe_display() {
             sRStart++;
             sREnd++;
         } else if (s_move == -1) { 
-            sRStart++;
+            sRStart--;
             sREnd--;
         }
 
