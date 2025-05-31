@@ -63,14 +63,15 @@ void cross_and_toe_display() {
     while (flag) {
         printf("\033[0d\033[2J"); // Очищаем экран в начале каждого "кадра"
 
-        // --- Отрисовка игрового поля без массива ---
+        // Отрисовка игрового поля 
         // Итерируем по каждой ячейке консоли и печатаем нужный символ
         for (int i = 0; i < max_pos_y; i++) { // Проходим по строкам (Y-координата)
             for (int j = 0; j < max_pos_x; j++) { // Проходим по столбцам (X-координата)
                 // Определяем, какой символ должен быть в текущей ячейке (j, i)
                 if (i == pointY && j == pointX) {
                     printf("%c", point); // Если это позиция мяча, печатаем мяч
-                } else if ((i >= fRStart && i <= fREnd && j == firstRacketX) || (i >= sRStart && i <= sREnd && j == secondRacketX)) {
+                } else if ((i >= fRStart && i <= fREnd && j == firstRacketX) || 
+                            (i >= sRStart && i <= sREnd && j == secondRacketX)) {
                     printf("%c", vertical); // Если это позиция ракетки, печатаем ракетку
                 } else if (j == 0 || j == max_pos_x - 1) {
                     printf("%c", vertical); // Если это левая/правая граница, печатаем вертикальную черту
@@ -145,6 +146,7 @@ void cross_and_toe_display() {
             fRStart++;
             fREnd++;
         } else if (f_move == -1) { 
+            fRStart--;
             fREnd--;
         }
 
